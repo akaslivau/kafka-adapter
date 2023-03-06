@@ -1,11 +1,8 @@
-package ru.did.jpaenumcustomrsort.domain.service;
+package ru.did.kafkaadapter.domain.service;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import ru.did.jpaenumcustomrsort.domain.controller.CreatureDto;
-import ru.did.jpaenumcustomrsort.domain.controller.CreaturePredicate;
+import ru.did.kafkaadapter.controller.dto.Message;
 
-public interface CreatureService {
+public interface MessageService {
 
-    Page<CreatureDto> findCreatures(CreaturePredicate predicate, Pageable pageable);
+    void createMessage(Message message);
 }

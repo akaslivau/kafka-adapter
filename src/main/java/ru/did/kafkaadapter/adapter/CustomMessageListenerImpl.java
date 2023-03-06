@@ -1,4 +1,4 @@
-package ru.did.kafkaadapter.domain.service;
+package ru.did.kafkaadapter.adapter;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -8,6 +8,7 @@ import org.springframework.kafka.config.MethodKafkaListenerEndpoint;
 import org.springframework.kafka.listener.MessageListener;
 import org.springframework.stereotype.Component;
 import ru.did.kafkaadapter.domain.model.ConsumerProperty;
+import ru.did.kafkaadapter.domain.service.MessageConsumerService;
 
 /**
  * Service to perform some actions, when message consumed from "foreign" kafka

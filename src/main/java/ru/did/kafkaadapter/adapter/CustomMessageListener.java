@@ -1,4 +1,4 @@
-package ru.did.kafkaadapter.domain.service;
+package ru.did.kafkaadapter.adapter;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -15,7 +15,7 @@ import java.util.Properties;
 public abstract class CustomMessageListener {
     private static int NUMBER_OF_LISTENERS = 0;
 
-    @Value("app.kafka.send.group.id")
+    @Value("${app.kafka.send.group.id}")
     private String groupId;
 
     public abstract KafkaListenerEndpoint createKafkaListenerEndpoint(String name, ConsumerProperty props);

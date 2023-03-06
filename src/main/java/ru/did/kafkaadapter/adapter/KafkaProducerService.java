@@ -1,4 +1,4 @@
-package ru.did.kafkaadapter.domain.service;
+package ru.did.kafkaadapter.adapter;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +15,7 @@ import java.util.concurrent.TimeoutException;
 @RequiredArgsConstructor
 public class KafkaProducerService {
 
-    @Value("app.kafka.send.timeout.seconds")
+    @Value("${app.kafka.send.timeout.seconds}")
     private Long sendTimeout;
 
     private final KafkaTemplateFactory factory;
@@ -24,7 +24,7 @@ public class KafkaProducerService {
         KafkaTemplate<String, String> kt = factory.get(msg.getKafkaUrl());
         kt.setDefaultTopic(msg.getTopic());
         try {
-            kt.send(msg.build()).get(Optional.ofNullable(sendTimeout).orElse(10L), TimeUnit.SECONDS);
+            kt.send(msg.build()).get(Optional.ofNullable(sendTimeout).orElse(5L), TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             return false;

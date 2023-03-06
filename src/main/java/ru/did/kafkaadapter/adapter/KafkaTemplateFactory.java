@@ -1,4 +1,4 @@
-package ru.did.kafkaadapter.domain.service;
+package ru.did.kafkaadapter.adapter;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
